@@ -72,14 +72,14 @@ async function insertUserLevel(connection, userId) {
 }
 
 // 패스워드 체크
-async function selectUserPassword(connection, selectUserPasswordParams) {
+async function selectUserPassword(connection, id) {
   const selectUserPasswordQuery = `
-        SELECT email, nickname, password
-        FROM UserInfo 
-        WHERE email = ? AND password = ?;`;
+    SELECT userIdx, userNickname, userPassword
+    FROM Users
+    WHERE userId = ?`;
   const selectUserPasswordRow = await connection.query(
-    selectUserPasswordQuery,
-    selectUserPasswordParams
+      selectUserPasswordQuery,
+      id
   );
 
   return selectUserPasswordRow;

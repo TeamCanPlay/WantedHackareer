@@ -2,8 +2,17 @@ module.exports = function(app){
     const user = require('./userController');
     const jwtMiddleware = require('../../../config/jwtMiddleware');
 
-    //로그인 하기
-    app.post('/app/users',user.postUsers);
+    //회원가입
+    app.post('/users',user.postUsers);
+
+    //로그인
+    app.post('/users/login',user.login);
+
+    // JWT 검증 API
+    app.get('/check', jwtMiddleware, user.check);
+
+
+
 
 
 

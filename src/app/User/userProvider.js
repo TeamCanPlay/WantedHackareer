@@ -50,11 +50,10 @@ exports.nicknameCheck = async function (nickname) {
   return nicknameCheckResult;
 };
 
-exports.passwordCheck = async function (selectUserPasswordParams) {
+exports.passwordCheck = async function (id) {
   const connection = await pool.getConnection(async (conn) => conn);
   const passwordCheckResult = await userDao.selectUserPassword(
-    connection,
-    selectUserPasswordParams
+      connection, id
   );
   connection.release();
   return passwordCheckResult[0];

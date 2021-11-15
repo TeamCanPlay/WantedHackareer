@@ -11,14 +11,14 @@ module.exports = function(app){
     // JWT 검증 API
     app.get('/check', jwtMiddleware, user.check);
 
-
-
-
-
-
-
     // 회원 전체 조회 + 이메일로 조회 API
-    app.get('/app/users',user.getUsers); 
+    app.get('/users',user.getUsers);
+
+
+
+
+
+
 
     // 회원 조회 API
     app.get('/app/users/:userId', jwtMiddleware, user.getUserById); 

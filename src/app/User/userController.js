@@ -68,14 +68,6 @@ exports.check = async function (req, res) {
   return res.send(response(baseResponse.TOKEN_VERIFICATION_SUCCESS,{userIdx,userNickname}));
 };
 
-
-
-
-
-
-
-
-
 /** 회원 전체 조회 API
  * [GET] /app/users
  *
@@ -83,6 +75,7 @@ exports.check = async function (req, res) {
  * [GET] /app/users?word=
  * queryString : word
  */
+
 exports.getUsers = async function (req, res) {
   const email = req.query.word;
   if (!email) {
@@ -93,6 +86,16 @@ exports.getUsers = async function (req, res) {
     return res.send(res.send(response(baseResponse.SUCCESS,userListByEmail)));
   }
 };
+
+
+
+
+
+
+
+
+
+
 
 /** 회원 조회 API
  * [GET] /app/users/:userId

@@ -68,26 +68,6 @@ exports.check = async function (req, res) {
   return res.send(response(baseResponse.TOKEN_VERIFICATION_SUCCESS,{userIdx,userNickname}));
 };
 
-/** 회원 전체 조회 API
- * [GET] /app/users
- *
- * 회원 이메일 검색 조회 API
- * [GET] /app/users?word=
- * queryString : word
- */
-
-exports.getUsers = async function (req, res) {
-  const email = req.query.word;
-  if (!email) {
-    const userListResult = await userProvider.retrieveUserList();
-    return res.send(res.send(response(baseResponse.SUCCESS, userListResult)));
-  } else {
-    const userListByEmail = await userProvider.retrieveUserList(email);
-    return res.send(res.send(response(baseResponse.SUCCESS,userListByEmail)));
-  }
-};
-
-
 
 
 

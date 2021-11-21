@@ -16,7 +16,7 @@ module.exports = function(app){
 
 
 
-
+/*
     // 회원 조회 API
     app.get('/app/users/:userId', jwtMiddleware, user.getUserById); 
 
@@ -31,6 +31,6 @@ module.exports = function(app){
 
    // JWT 검증 API
     app.get('/app/users/check', jwtMiddleware, user.check);
-
+*/
   
 };

@@ -28,6 +28,23 @@ exports.postActivityVideo = async function (req, res) {
   return res.send(postActivityVideoResponse);
 };
 
+/** 액티비티 동영상 가져오기
+ * [GET] /activity-video?page=0&limit=10
+ * query : page,limit
+ */
+exports.getActivityVideo = async function (req, res) {
+  const {page,limit} = req.query;
+
+  if (!page || !limit) {
+    return res.send(errResponse(baseResponse.MANDATORY_REQUEST_EMPTY));
+  }
+
+  const getActivityVideoResponse = await activityProvider.getActivityVideo(Number(page),Number(limit));
+  return res.send(res.send(response(baseResponse.SUCCESS, getActivityVideoResponse)));
+};
+
+
+
 
 
 

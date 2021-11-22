@@ -33,7 +33,6 @@ exports.postActivityVideo = async function (videoUrl, comment, userIdx,category)
 
 
 
-
 exports.editUser = async function (id, nickname) {
   try {
     console.log(id)

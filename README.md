@@ -5,5 +5,5 @@
 
 ## 🛠 Stacks
 
-<img src="image/stacks.png.png">
+<img src="image/stacks.png">
 

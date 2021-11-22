@@ -14,12 +14,12 @@ module.exports = function () {
     app.use(methodOverride());
 
     app.use(cors());
-    // app.use(express.static(process.cwd() + '/public'));
 
     /* App (Android, iOS) */
     //require('../src/app/routes/indexRoute')(app);
     //require('../src/app/indexRoute')(app);
     require('../src/app/User/userRoute')(app);
+    require('../src/app/Activity/activityRoute')(app);
 
     /* Web */
     // require('../src/web/routes/indexRoute')(app);

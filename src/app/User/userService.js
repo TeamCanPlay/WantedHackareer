@@ -61,7 +61,7 @@ exports.postSignIn = async function (id, password) {
 
     const userInfoRows = await userProvider.passwordCheck(id);
 
-    console.log(userInfoRows)
+    //console.log(userInfoRows)
 
     if (userInfoRows[0].userPassword !== hashedPassword) {
       return errResponse(baseResponse.SIGNIN_LOGIN_WRONG);

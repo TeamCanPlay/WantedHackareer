@@ -9,11 +9,6 @@ const firebaseDB = admin.initializeApp({
     credential: admin.credential.cert(serviceAccount)
   });
 
-/**
- update : 2021.02.07
- summary : 파이어베이스 클라우드 메시지 송신
- fcm 을 보내는 방법 참고용 소스입니다. 실제로 테스트는 되지 않습니다.
- */
 exports.sendCloudMessage = async function (req, res) {
     // logger.info(`파이어베이스 클라우드 메시지 수신 여부 갱신 API 호출 테스트`);
     const fcmToken = req.body.token;

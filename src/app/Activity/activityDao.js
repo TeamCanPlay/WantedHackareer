@@ -17,12 +17,13 @@ async function selectActivityVideo(connection, [page, limit]) {
         SELECT videoIdx,
                videoUrl,
                Users.userNickname,
-               Users.userProfileImg,
+               IFNULL(Users.userProfileImg, -1)                                                                  AS userProfileImg,
                comment,
                location,
                (SELECT count(userIdx)
                 From VideoHeart
-                WHERE status = 1 AND VideoHeart.videoIdx = ActivityVideo.videoIdx)                               AS heartCount,
+                WHERE status = 1
+                  AND VideoHeart.videoIdx = ActivityVideo.videoIdx)                                              AS heartCount,
                (SELECT count(commentIdx)
                 From VideoComment
                 WHERE VideoComment.videoIdx = ActivityVideo.videoIdx)                                            AS reviewCount
@@ -30,10 +31,9 @@ async function selectActivityVideo(connection, [page, limit]) {
         FROM ActivityVideo
                  INNER Join Users ON Users.userIdx = ActivityVideo.userIdx limit ?,?;
     `;
-    const [selectActivityVideoRows] = await connection.query(selectActivityVideoQuery,[page, limit]);
+    const [selectActivityVideoRows] = await connection.query(selectActivityVideoQuery, [page, limit]);
     return selectActivityVideoRows;
 }
-
 
 module.exports = {
     insertActivityVideo,

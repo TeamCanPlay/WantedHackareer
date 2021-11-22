@@ -5,6 +5,6 @@
 
 ## 🛠 Stacks
 
+<<<<<<< HEAD
 <img src="image/stacks1.png">
 <img src="image/stacks2.png">
-

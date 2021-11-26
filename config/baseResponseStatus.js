@@ -30,7 +30,7 @@ module.exports = {
     USER_NICKNAME_EMPTY : { "isSuccess": false, "code": 2017, "message": "변경할 닉네임 값을 입력해주세요" },
 
     USER_STATUS_EMPTY : { "isSuccess": false, "code": 2018, "message": "회원 상태값을 입력해주세요" },
-    COMMENT_LENGTH_WRONG : { "isSuccess": false, "code": 2019, "message": "comment의 길이는 500글자 이하입니다." },
+    SIZE_WRONG : { "isSuccess": false, "code": 2019, "message": "용량초과" },
 
    
 

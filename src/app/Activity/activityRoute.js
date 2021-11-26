@@ -9,5 +9,7 @@ module.exports = function(app){
     //액티비티 영상 등록
     app.post('/activity-video',jwtMiddleware,activity.postActivityVideo);
 
+    //S3 스토리지 동영상 업로드
+    app.post('/activity-video-tos3',activity.uploadToS3);
 
 };

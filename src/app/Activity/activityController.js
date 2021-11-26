@@ -5,7 +5,19 @@ const activityService = require("../../app/Activity/activityService");
 const baseResponse = require("../../../config/baseResponseStatus");
 const { response } = require("../../../config/response");
 const { errResponse } = require("../../../config/response");
+const secretKey = require('../../../config/secret');
+
+//aws s3 업로드 관련
+const fs = require("fs");
+const AWS = require("aws-sdk");
+const s3 = new AWS.S3({
+  accessKeyId:secretKey.AWS_ACCESS_KEY,
+  secretAccessKey:secretKey.AWS_SECRET_ACCESS_KEY,
+  region:"ap-northeast-2"
+})
+
 const { emit } = require("nodemon");
+
 
 /** 액티비티 동영상 업로드
  * [POST] /activity-video
@@ -43,6 +55,35 @@ exports.getActivityVideo = async function (req, res) {
   return res.send(res.send(response(baseResponse.SUCCESS, getActivityVideoResponse)));
 };
 
+/** 액티비티 동영상 업로드
+ * [POST] /activity-video-tos3
+ * body : binaryfile (mp4)
+ */
+exports.uploadToS3 = async function (file,res) {
+
+  let params = {
+    Bucket: 'playteam',
+    Key: "SOT-activityVideo/"+Date.now(),
+    ACL: "public-read",
+    //  Body: fs.createReadStream("./testImg.png"),
+    Body: file,
+    ContentType: "video/mp4",
+    Conditions: [
+      ['content-length-range', 0, 15000000], // 10 Mb
+    ]
+    //ContentType: "image/png"
+  };
+
+  s3.upload(params, function(err, data) {
+    if (err) {
+      console.log("Error : ", err);
+      return res.send((response(baseResponse.SIZE_WRONG)));
+    }
+    console.log("============================================");
+    console.log("Data : ", data);
+    return res.send((response(baseResponse.SUCCESS,{videoUrl:data.Location})));
+  });
+};
 
 
 

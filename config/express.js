@@ -16,15 +16,8 @@ module.exports = function () {
     app.use(cors());
 
     /* App (Android, iOS) */
-    //require('../src/app/routes/indexRoute')(app);
-    //require('../src/app/indexRoute')(app);
     require('../src/app/User/userRoute')(app);
     require('../src/app/Activity/activityRoute')(app);
 
-    /* Web */
-    // require('../src/web/routes/indexRoute')(app);
-
-    /* Web Admin*/
-    // require('../src/web-admin/routes/indexRoute')(app);
     return app;
 };

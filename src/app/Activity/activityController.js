@@ -24,10 +24,10 @@ const { emit } = require("nodemon");
  * body : videoUrl,comment,category
  */
 exports.postActivityVideo = async function (req, res) {
-  const {videoUrl, comment,category} = req.body;
+  const {videoUrl, comment,category,location} = req.body;
   const userIdx = req.verifiedToken.userIdx;
 
-  if (!videoUrl) {
+  if (!videoUrl || !location ||!category) {
     return res.send(errResponse(baseResponse.MANDATORY_REQUEST_EMPTY));
   }
 
@@ -35,7 +35,7 @@ exports.postActivityVideo = async function (req, res) {
     return res.send(errResponse(baseResponse.COMMENT_LENGTH_WRONG));
   }
 
-  const postActivityVideoResponse = await activityService.postActivityVideo(videoUrl,comment,userIdx,category);
+  const postActivityVideoResponse = await activityService.postActivityVideo(videoUrl,comment,userIdx,category,location);
 
   return res.send(postActivityVideoResponse);
 };
@@ -79,7 +79,6 @@ exports.uploadToS3 = async function (file,res) {
       console.log("Error : ", err);
       return res.send((response(baseResponse.SIZE_WRONG)));
     }
-    console.log("============================================");
     console.log("Data : ", data);
     return res.send((response(baseResponse.SUCCESS,{videoUrl:data.Location})));
   });

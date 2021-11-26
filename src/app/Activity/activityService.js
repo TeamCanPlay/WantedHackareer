@@ -10,11 +10,11 @@ const { response } = require("../../../config/response");
 const { errResponse } = require("../../../config/response");
 const { connect } = require("http2");
 
-exports.postActivityVideo = async function (videoUrl, comment, userIdx,category) {
+exports.postActivityVideo = async function (videoUrl, comment, userIdx,category,location) {
   try {
 
     const connection = await pool.getConnection(async (conn) => conn);
-    const postActivityParams = [videoUrl, comment,category,userIdx]
+    const postActivityParams = [videoUrl, comment,category,userIdx,location]
     await activityDao.insertActivityVideo(connection,postActivityParams)
     connection.release();
 

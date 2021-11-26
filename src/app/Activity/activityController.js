@@ -82,7 +82,8 @@ exports.uploadToS3 = async function (file,res) {
     console.log("Data : ", data);
     return res.send((response(baseResponse.SUCCESS,{videoUrl:data.Location})));
   });
-};
+}
+
 
 
 

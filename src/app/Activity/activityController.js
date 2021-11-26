@@ -55,7 +55,7 @@ exports.getActivityVideo = async function (req, res) {
   return res.send(res.send(response(baseResponse.SUCCESS, getActivityVideoResponse)));
 };
 
-/** 액티비티 동영상 업로드
+/** 액티비티 동영상 업로드, URL 행성
  * [POST] /activity-video-tos3
  * body : binaryfile (mp4)
  */
@@ -69,7 +69,7 @@ exports.uploadToS3 = async function (file,res) {
     Body: file,
     ContentType: "video/mp4",
     Conditions: [
-      ['content-length-range', 0, 15000000], // 10 Mb
+      ['content-length-range', 0, 30000000], // 30 Mb
     ]
     //ContentType: "image/png"
   };

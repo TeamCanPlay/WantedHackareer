@@ -1,4 +1,4 @@
-var admin = require("firebase-admin");
+let admin = require("firebase-admin");
 const baseResponse = require("../../../config/baseResponseStatus");
 const { response } = require("../../../config/response")
 const { errResponse } = require("../../../config/response")

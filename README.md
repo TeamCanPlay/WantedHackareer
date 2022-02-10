@@ -6,7 +6,7 @@
 
 <h1 align="center">일상 속 여행의 시작점, SOT (Start Of a Trip)</h2>
 
-<h3 align="center">[원티드] 채용 연계형 대규모 해커톤 해, 커리어 - Team 놀 줄 아는 팀<br>2021.10.31 ~ ing</h4>
+<h3 align="center">[원티드] 채용 연계형 대규모 해커톤 해, 커리어 - Team 놀 줄 아는 팀<br>2021.10.31 ~ 2021.12.05</h4>
 
 
 <h3 align="center">💛Back-End Developer💛<br><a href="https://github.com/liyusang1">이유상</a><br>
@@ -33,3 +33,6 @@
 </p>
 
 <h3 align="center">오픈 API목록: 한국관광공사 TourAPI 3.0 - 국문 관광정보 서비스<a href="https://api.visitkorea.or.kr/openAPI/applicationList.do?&pageNo=2"> (Link)</a></h3>
+    
+## 📝 Record
+* 원티드 채용연계형 해커톤 해,커리어 실버 뱃지 (상위 50위 진출) (2021.12.05) 
